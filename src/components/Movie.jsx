@@ -3,9 +3,11 @@ import {FaHeart,FaRegHeart} from 'react-icons/fa';
 
 const Movie = ({item}) => {
     const [like,setLike] = React.useState(false);
+    const toggleLike = () => {setLike(!like)}
     return (
         <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280] inline-block cursor-pointer relative p-2">
             <img
+
                 src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                 alt={item.title}
             ></img>
@@ -15,9 +17,9 @@ const Movie = ({item}) => {
                 </p>
                 <p>
                     {like ? (
-                        <FaHeart className="absolute top-3 left-3 text-gray-300" />
+                        <FaHeart className="absolute top-3 left-3 text-red-600" onClick={toggleLike}/>
                     ) : (
-                        <FaRegHeart className="absolute top-3 left-3 text-gray-300" />
+                        <FaRegHeart className="absolute top-3 left-3 text-gray-300" onClick={toggleLike}/>
                     )}
                 </p>
             </div>
